@@ -9,6 +9,7 @@ import { Button } from './ui/button'
 import { DialogTrigger } from './ui/dialog'
 import { Progress, ProgressIndicator } from './ui/progress-bar'
 import { Separator } from './ui/separator'
+import { EmptyGoals } from './empty-goals'
 
 dayjs.locale(ptBR)
 
@@ -22,6 +23,8 @@ export function Summary() {
   if (!data) {
     return null
   }
+
+  console.log(data)
 
   const firstDayOfWeek = dayjs().startOf('week').format('D MMM')
   const lastDayOfWeek = dayjs().endOf('week').format('D MMM')
@@ -68,8 +71,9 @@ export function Summary() {
 
       <div className="flex flex-col gap-6">
         <h2 className="text-xl font-medium">Sua semana</h2>
-
-        {Object.entries(data.goalsPerDay).map(([date, goals]) => {
+        {
+          data.goalsPerDay ?
+          (Object.entries(data.goalsPerDay).map(([date, goals]) => {
           const weekDay = dayjs(date).format('dddd')
           const formattedDate = dayjs(date).format('D [de] MMMM')
 
@@ -97,7 +101,9 @@ export function Summary() {
               </ul>
             </div>
           )
-        })}
+        })) :
+        (<div className='text-zinc-400'>Nenhuma meta concluída</div>)
+      }
       </div>
     </div>
   )
