@@ -3,7 +3,7 @@ import { useQueryClient } from '@tanstack/react-query'
 import { X } from 'lucide-react'
 import { Controller, useForm } from 'react-hook-form'
 import { z } from 'zod'
-import { createGoal } from '../http/create-goal'
+import { createGoal } from '../services/create-goal'
 import { Button } from './ui/button'
 import {
   DialogClose,
