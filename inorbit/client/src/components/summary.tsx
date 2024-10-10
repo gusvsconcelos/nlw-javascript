@@ -9,7 +9,6 @@ import { Button } from './ui/button'
 import { DialogTrigger } from './ui/dialog'
 import { Progress, ProgressIndicator } from './ui/progress-bar'
 import { Separator } from './ui/separator'
-import { EmptyGoals } from './empty-goals'
 
 dayjs.locale(ptBR)
 
